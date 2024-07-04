@@ -1,8 +1,8 @@
-<div id="list-<%= @list.name.parameterize %>" class="position-relative list-cover all-lists bg-light">
-  <div class="card-category card-large">
-    <h1><%= @list.name %></h1>
+<div id="list-<%= @list.name.parameterize %>" class="position-relative list-cover all-lists bg-light mb-2">
+  <div class="card-category card-large p-3">
+    <h1 class=""><%= @list.name %></h1>
   </div>
-    <span class="movie-tag"><%= pluralize(@list.movies.size, 'movie') %></span>
+  <span class="movie-tag p-3 mb-2"><%= pluralize(@list.movies.size, 'movie') %></span>
 </div>
 <div class="container mb-5">
   <div class="d-flex justify-content-between my-4">
