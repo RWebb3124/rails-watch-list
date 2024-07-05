@@ -7,17 +7,33 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-require 'faker'
+require 'json'
+require 'open-uri'
 
 Movie.destroy_all
 
-20.times do
+response = URI.open('https://tmdb.lewagon.com/movie/top_rated').read
+
+json = JSON.parse(response)
+movie_results = json['results']
+movie_results.each do |movie|
   Movie.create!(
     {
-      title: Faker::Movie.title,
-      overview: Faker::Movie.quote,
-      poster_url: 'https://picsum.photos/200',
-      rating: rand(1.0..10.0).round(1)
+      title: movie['original_title'],
+      overview: movie['overview'],
+      poster_url: "https://image.tmdb.org/t/p/original#{movie['poster_path']}",
+      rating: movie['vote_average'].round(1)
     }
   )
 end
+
+# 20.times do
+#   Movie.create!(
+#     {
+#       title: Faker::Movie.title,
+#       overview: Faker::Movie.quote,
+#       poster_url: 'https://picsum.photos/200',
+#       rating: rand(1.0..10.0).round(1)
+#     }
+#   )
+# end

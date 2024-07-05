@@ -12,6 +12,8 @@ gem "bootstrap", "~> 5.2"
 
 gem "autoprefixer-rails"
 
+gem "cloudinary"
+
 gem "font-awesome-sass", "~> 6.1"
 
 gem "simple_form"
