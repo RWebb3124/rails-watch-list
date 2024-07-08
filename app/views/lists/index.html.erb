@@ -14,7 +14,7 @@
   <% @lists.each do |list| %>
       <div class="col-12 col-sm-6 mb-4" data-aos="zoom-in">
         <div class="bg-white rounded shadow h-100">
-          <div class="p-2 rounded-bottom d-flex flex-column custom-list-bg-image" style="background-image: url('<%= cl_image_path list.photo.key, :cloud_name => dozpszuza, height: 300, crop: :fill unless list.photo.key.blank?%>');">
+          <div class="p-2 rounded-bottom d-flex flex-column custom-list-bg-image" style="background-image: url('<%= cl_image_path list.photo.key, height: 300, crop: :fill unless list.photo.key.blank?%>');">
             <%= link_to list.name, list_path(list), class: 'btn btn-cancel custom-design-button' %>
             <div class="d-flex align-items-end justify-content-between pt-4">
               <div class="bg-light rounded bg-opacity-50 p-1">
